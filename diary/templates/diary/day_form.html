@@ -1,9 +1,10 @@
-{% extends'diary/base.html' %}
+{% extends 'diary/base.html' %}
+
 
 {% block content %}
-<form action="method"="POST">
+<form action="" method="POST">
     {{form.as_p}}
     <button type="submit">送信</button>
-    {%csrf_token %}
+    {% csrf_token %}
 </form>
 {% endblock %}
