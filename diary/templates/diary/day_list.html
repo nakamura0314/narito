@@ -2,9 +2,21 @@
 
 {% block content %}
 <h1>日記一覧</h1>
-
-{% for day in day_list %}
-<h2>{{day.title}}</h2>
-{% endfor %}
-
+<table class="table">
+    <thead>
+        <tr>
+            <th>タイトル</th>
+            <th>日付</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for day in day_list %}
+        <tr>
+            <td>{{day.title}}</td>
+            <td>{{day.date}}</td>
+            <td><a href="{% url 'diary:update' day.pk %}">更新</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 {% endblock %}

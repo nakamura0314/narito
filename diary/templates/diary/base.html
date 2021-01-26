@@ -16,8 +16,8 @@
 <body>
     <div class="container">
         <nav class="nav">
-            <a class="nav-link" href="{% url'diary:index' %}">一覧</a>
-            <a class="nav-link" href="{% url'diary:add %}'">追加</a>
+            <a class="nav-link" href="{% url 'diary:index' %}">一覧</a>
+            <a class="nav-link" href="{% url 'diary:add' %}">追加</a>
         </nav>
         {% block content %}
         {% endblock %}
