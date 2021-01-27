@@ -43,3 +43,30 @@ def update(request, pk):
         'form': form
     }
     return render(request, 'diary/day_form.html', context)
+
+
+def delete(request, pk):
+    # urlのpkを基に、Dayを取得
+    day = get_object_or_404(Day, pk=pk)
+
+    # method=POST、つまり送信ボタン押下時、入力内容が問題なければ
+    if request.method == 'POST':
+        day.delete()
+        return redirect('diary:index')
+
+    # 通常時のページアクセスや、入力内容に誤りがあればまたページを表示
+    context = {
+        'day': day,
+    }
+    return render(request, 'diary/day_confirm_delete.html', context)
+
+
+def detail(request, pk):
+    # urlのpkを基に、Dayを取得
+    day = get_object_or_404(Day, pk=pk)
+
+    # 通常時のページアクセスや、入力内容に誤りがあればまたページを表示
+    context = {
+        'day': day,
+    }
+    return render(request, 'diary/day_detail.html', context)
